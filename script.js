@@ -15,15 +15,30 @@ function drawGrid(num) {
         }
     }
 }
-function draw() {
-    $(this).mouseenter(function(){
-        $(this).css('background-color', color);
-    });
+function changeColor() {
+
 }
 
-$(document).ready(function () {
-   drawGrid(defaultGrid);
+function resetDisplay() {
+
+}
+
+function changeGrid() {
+    $('.container').empty();
+    var gridSize = 0;
+    while (gridSize < 1 || gridSize > 100) {
+        gridSize = prompt("Select a grid size between 1 - 100: ");
+    }
+    sketchpad(gridSize);
+
+}
+function sketchpad(num) {
+    drawGrid(num);
     $('.unit').mouseenter(function(){
         $(this).css('background-color', color);
     });
+
+}
+$(document).ready(function () {
+   sketchpad(defaultGrid);
 });
